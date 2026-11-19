@@ -43,25 +43,25 @@
       <groupId>org.bytedeco</groupId>
       <artifactId>javacpp</artifactId>
       <version>${javacv.version}</version>
-      <classifier>macosx-arm64</classifier>
+      <classifier>${javacpp.platform}</classifier>
     </dependency>
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>ffmpeg</artifactId>
       <version>8.0.1-1.5.13</version>
-      <classifier>macosx-arm64</classifier>
+      <classifier>${javacpp.platform}</classifier>
     </dependency>
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>opencv</artifactId>
       <version>4.13.0-1.5.13</version>
-      <classifier>macosx-arm64</classifier>
+      <classifier>${javacpp.platform}</classifier>
     </dependency>
     <dependency>
       <groupId>org.bytedeco</groupId>
       <artifactId>openblas</artifactId>
       <version>0.3.31-1.5.13</version>
-      <classifier>macosx-arm64</classifier>
+      <classifier>${javacpp.platform}</classifier>
     </dependency>
   </dependencies>
 
@@ -135,6 +135,53 @@
   </build>
 
   <profiles>
+    <profile>
+      <id>windows-x86_64</id>
+      <activation>
+        <os>
+          <family>Windows</family>
+        </os>
+      </activation>
+      <properties>
+        <javacpp.platform>windows-x86_64</javacpp.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>linux-x86_64</id>
+      <activation>
+        <os>
+          <family>unix</family>
+          <arch>amd64</arch>
+        </os>
+      </activation>
+      <properties>
+        <javacpp.platform>linux-x86_64</javacpp.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>macosx-arm64</id>
+      <activation>
+        <os>
+          <family>mac</family>
+          <arch>aarch64</arch>
+        </os>
+      </activation>
+      <properties>
+        <javacpp.platform>macosx-arm64</javacpp.platform>
+      </properties>
+    </profile>
+    <profile>
+      <id>macosx-x86_64</id>
+      <activation>
+        <os>
+          <family>mac</family>
+          <arch>x86_64</arch>
+        </os>
+      </activation>
+      <properties>
+        <javacpp.platform>macosx-x86_64</javacpp.platform>
+      </properties>
+    </profile>
     <profile>
       <id>fat-jar</id>
       <build>
