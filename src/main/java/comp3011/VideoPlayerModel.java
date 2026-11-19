@@ -42,6 +42,7 @@ public class VideoPlayerModel {
     private static final long NO_SEEK_REQUEST = -1; // Sentinel value used when no seek position is active.
     private static final long FIVE_SECONDS_US = 5_000_000L;
     private static final long AUDIO_LEAD_NS = 30_000_000L;
+    private static final long MIN_FRAME_LATENESS_NS = 80_000_000L;
 
     private final List<FrameProcessor> frameProcessors;
     private final Queue<PendingAudio> pendingAudio = new ArrayDeque<>();
@@ -379,13 +380,17 @@ public class VideoPlayerModel {
             }
 
             int frameNumber = grabber.getFrameNumber();
+            long relativeTimestampUs = Math.max(0, timestampUs - firstTimestampUs);
+            long targetTimeNs = playbackStartNs + relativeTimestampUs * 1_000L;
+            if (isLateFrame(targetTimeNs, timestampUs)) {
+                continue;
+            }
+
             InfoFrame info = new InfoFrame(frameNumber, timestampUs);
             processFrame(frame, info);
 
             Image image = converter.convert(frame);
-            long relativeTimestampUs = Math.max(0, timestampUs - firstTimestampUs);
             long logicalTimestampUs = logicalPlaybackBaseUs + relativeTimestampUs;
-            long targetTimeNs = playbackStartNs + relativeTimestampUs * 1_000L;
 
             return new PreparedFrame(
                     image,
@@ -397,6 +402,26 @@ public class VideoPlayerModel {
         }
 
         return null;
+    }
+
+    private boolean isLateFrame(long targetTimeNs, long timestampUs) {
+        if (playbackStartNs <= 0 || targetTimeNs + latenessThresholdNs() >= System.nanoTime()) {
+            return false;
+        }
+
+        long durationUs = videoDurationUs;
+        if (durationUs != NO_SEEK_REQUEST) {
+            long finalFramesWindowUs = Math.max(1_000_000L, (long) videoFrameDurationUs * 5);
+            if (timestampUs >= durationUs - finalFramesWindowUs) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private long latenessThresholdNs() {
+        long frameDurationNs = Math.max(0, videoFrameDurationUs) * 1_000L;
+        return Math.max(MIN_FRAME_LATENESS_NS, frameDurationNs * 2);
     }
 
     // This is called on a heart beat by the GUI thread. We want to be co-operative here by (a) not blocking, and (b)
