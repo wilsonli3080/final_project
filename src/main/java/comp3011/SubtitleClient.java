@@ -26,6 +26,10 @@ import org.bytedeco.javacv.Frame;
 
 /**
  * Extracts audio and submits short WAV chunks without blocking video playback.
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted with chunked extraction,
+ * concurrency, and HTTP response parsing in this class. The implementation was
+ * reviewed and adapted for this project by the student.</p>
  */
 public class SubtitleClient implements AutoCloseable {
     private static final String SUBTITLE_ENDPOINT = "http://localhost:8080/api/v1/subtitles";

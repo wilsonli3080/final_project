@@ -37,6 +37,10 @@ import javafx.scene.image.Image;
  * callbacks supplied by its owning {@link VideoPlayerController}, keeping it
  * decoupled from the JavaFX view.
  * </p>
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted with parts of the subtitle
+ * playback integration and frame-lateness handling. The implementation was
+ * reviewed and adapted for this project by the student.</p>
  */
 public class VideoPlayerModel {
     private static final long NO_SEEK_REQUEST = -1; // Sentinel value used when no seek position is active.

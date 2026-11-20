@@ -2,6 +2,12 @@
 
 This JavaFX video player extends the Assignment 2 frame processors with speech-to-text subtitles. It starts the local subtitle API at `http://localhost:8080` when the player launches. Audio is extracted in a background worker and sent in 15-second WAV chunks, so video and audio playback do not wait for transcription.
 
+## Attribution and AI assistance
+
+- The Assignment 2 starter code was supplied by Adelaide University. Its source headers attribute the starter-code authorship to Simon Ratcliffe and acknowledge collaboration with GPT-5.6 Terra.
+- GitHub Copilot was used as an AI coding assistant for parts of the Assignment 3 implementation, including the subtitle pipeline, cross-platform Maven configuration, and playback integration. The student reviewed and adapted the generated code and is responsible for the final implementation and its explanation.
+- AI-assisted areas are identified in comments in the relevant subtitle, playback, and build files.
+
 ## Build and run
 
 Use JDK 25 or later and Maven:

@@ -25,6 +25,10 @@ import com.sun.net.httpserver.HttpServer;
 
 /**
  * Local HTTP bridge between the player and OpenAI's Whisper transcription API.
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted with the HTTP bridge, WAV
+ * multipart request, and timestamped subtitle response logic in this class.
+ * The implementation was reviewed and adapted for this project by the student.</p>
  */
 public class SubtitleServer implements AutoCloseable {
     private static final int PORT = 8080;
