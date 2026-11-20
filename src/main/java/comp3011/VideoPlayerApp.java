@@ -29,6 +29,10 @@ import javafx.stage.Stage;
  * command-line launch settings, and starts playback. It also resizes the video
  * display to fit the selected screen.
  * </p>
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted Mingxuan Li with wiring the
+ * local subtitle service and subtitle launch configuration into application
+ * startup and shutdown. Mingxuan reviewed and adapted the integration.</p>
  */
 public class VideoPlayerApp extends Application {
     private static CommandLineController commandLineController;

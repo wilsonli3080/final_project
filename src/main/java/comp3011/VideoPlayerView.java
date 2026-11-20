@@ -41,6 +41,10 @@ import javafx.scene.shape.StrokeLineCap;
  * {@link VideoPlayerController}, but contains no playback logic (which all lives
  * in the controller).
  * </p>
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted Mingxuan Li with the subtitle
+ * button, its enabled/disabled appearance, and related view integration.
+ * Mingxuan reviewed and adapted the changes to the existing JavaFX controls.</p>
  */
 public class VideoPlayerView {
     private static final int ICON_SIZE = 28;

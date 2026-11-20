@@ -27,6 +27,10 @@ import javafx.scene.input.KeyEvent;
  * Wires up events from the {@link VideoPlayerView} to the {@link VideoPlayerModel}.
  * This includes button actions, keyboard shortcuts and display resizing.
  * </p>
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted Mingxuan Li with integrating
+ * the subtitle toggle state and S-key action into the existing controller.
+ * Mingxuan reviewed and adapted the integration.</p>
  */
 public class VideoPlayerController {
     private final VideoPlayerModel model;

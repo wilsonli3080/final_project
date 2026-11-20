@@ -135,11 +135,8 @@
   </build>
 
   <profiles>
-    <!--
-      AI-assistance note: GitHub Copilot assisted with the cross-platform JavaCPP
-      platform profiles below. The configuration was reviewed and adapted for
-      this project; the student is responsible for the final build integration.
-    -->
+    <!-- AI assistance: GitHub Copilot helped Mingxuan Li draft the OS-specific
+         JavaCV native profiles; Mingxuan reviewed and adapted this configuration. -->
     <profile>
       <id>windows-x86_64</id>
       <activation>

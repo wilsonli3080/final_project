@@ -22,6 +22,10 @@ import java.util.List;
  * or help text, and exposes the resulting launch configuration via methods to the
  * {@link VideoPlayerApp}.
  * </p>
+ *
+ * <p>AI-assistance note: GitHub Copilot assisted Mingxuan Li with the subtitle
+ * command-line option and its launch-state handling. Mingxuan reviewed and
+ * adapted the suggestion for this player's existing argument parser.</p>
  */
 public class CommandLineController {
     private final String[] args;

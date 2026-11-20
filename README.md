@@ -4,9 +4,7 @@ This JavaFX video player extends the Assignment 2 frame processors with speech-t
 
 ## Attribution and AI assistance
 
-- The Assignment 2 starter code was supplied by Adelaide University. Its source headers attribute the starter-code authorship to Simon Ratcliffe and acknowledge collaboration with GPT-5.6 Terra.
-- GitHub Copilot was used as an AI coding assistant for parts of the Assignment 3 implementation, including the subtitle pipeline, cross-platform Maven configuration, and playback integration. The student reviewed and adapted the generated code and is responsible for the final implementation and its explanation.
-- AI-assisted areas are identified in comments in the relevant subtitle, playback, and build files.
+The Assignment 2 starter code was supplied by Adelaide University; its source headers identify Simon Ratcliffe and acknowledge collaboration with GPT-5.6 Terra. GitHub Copilot also assisted Mingxuan Li with parts of this Assignment 3 project, including the subtitle client/server and frame-rendering pipeline, command-line and GUI subtitle controls, playback integration, and cross-platform Maven configuration. Mingxuan reviewed and adapted AI-generated suggestions, integrated the components, and remains responsible for the submitted implementation and explaining its design and behavior. Relevant source and build comments identify these AI-assisted areas; the starter code and third-party libraries are separate contributions.
 
 ## Build and run
 
